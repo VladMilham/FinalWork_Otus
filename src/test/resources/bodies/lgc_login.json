@@ -1,0 +1,6 @@
+{
+  "phone": "#{phoneLgc}",
+  "device_id": "#{device_id}",
+  "code": "123456",
+  "token": "TEST_LOGIN_TOKEN"
+}

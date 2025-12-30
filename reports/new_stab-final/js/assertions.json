@@ -1,0 +1,27 @@
+{
+  "simulation": "simulations.stab",
+  "simulationId": "stab-20251229130644261",
+  "start": 1767013618370,
+  "description": "",
+  "scenarios": ["UseScenarios - preprod MSA Load"],
+  "assertions": [
+{
+  "path": "Global",
+  "target": "95th percentile of response time",
+  "condition": "is less than",
+  "expectedValues": [3000.0],
+  "result": true,
+  "message": "Global: 95th percentile of response time is less than 3000.0",
+  "actualValue": [1868.0]
+},
+{
+  "path": "Global",
+  "target": "percentage of successful events",
+  "condition": "is greater than",
+  "expectedValues": [99.0],
+  "result": true,
+  "message": "Global: percentage of successful events is greater than 99.0",
+  "actualValue": [99.99964579577293]
+}
+  ]
+}

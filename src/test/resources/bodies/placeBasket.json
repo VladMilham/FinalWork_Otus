@@ -1,0 +1,22 @@
+{
+  "city_id": 312,
+  "shop_id": "#{shop_NN}",
+  "delivery": "pickup",
+  "basket": [
+    {"article": "101382", "quantity": 13, "measure": "кг"},
+    {"article": "162098", "quantity": 4.3, "measure": "шт"},
+    {"article": "101046411", "quantity": 1, "measure": "шт"},
+    {"article": "101389", "quantity": 2.7, "measure": "кг"},
+    {"article": "101255580", "quantity": 2, "measure": "шт"},
+    {"article": "100348910", "quantity": 1, "measure": "шт"}
+  ],
+  "payment": "cash",
+  "props": {
+    "date_reciept": "30.11.2025",
+    "interval_delivery": "15:00-16:00",
+    "reciever_name": "Влад Т",
+    "reciever_lastname": "Васильев Тест",
+    "reciever_phone": "#{phone}"
+  },
+  "order": false
+}

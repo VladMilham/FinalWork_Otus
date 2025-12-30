@@ -1,0 +1,15 @@
+{
+  "city_id": "#{cityId}",
+  "shop_id": "#{idShop}",
+  "delivery": "#{deliveryType}",
+  "address_id": "#{idAddress}",
+  "payment": "cash",
+  "props": {
+    "date_reciept": "#{date}",
+    "interval_delivery": "#{interval}",
+    "reciever_name": "Влад Т",
+    "reciever_lastname": "Васильев Тест",
+    "reciever_phone": "#{phone}"
+  },
+  "order": true
+}

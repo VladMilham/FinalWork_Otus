@@ -1,0 +1,10 @@
+{
+  "simulation": "simulations.stabLgc",
+  "simulationId": "stablgc-20251228224058121",
+  "start": 1766961668729,
+  "description": "",
+  "scenarios": ["LegacyTask - preprod legacy Load"],
+  "assertions": [
+
+  ]
+}

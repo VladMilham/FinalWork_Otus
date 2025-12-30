@@ -1,0 +1,399 @@
+{
+  "dashboard": {
+    "title": "Gatling Load Test - Universal Dashboard",
+    "uid": "gatling-universal",
+    "timezone": "browser",
+    "schemaVersion": 27,
+    "version": 1,
+    "refresh": "5s",
+    "time": {
+      "from": "now-1h",
+      "to": "now"
+    },
+    "templating": {
+      "list": [
+        {
+          "name": "simulation",
+          "type": "custom",
+          "datasource": "InfluxDB",
+          "definition": "Debug,fMax,stab",
+          "description": "Выбери название симуляции",
+          "label": "Симуляция",
+          "current": {
+            "text": "Debug",
+            "value": "Debug"
+          },
+          "options": [
+            {
+              "text": "Debug",
+              "value": "Debug"
+            },
+            {
+              "text": "fMax",
+              "value": "fMax"
+            },
+            {
+              "text": "stab",
+              "value": "stab"
+            }
+          ]
+        },
+        {
+          "name": "request_group",
+          "type": "custom",
+          "datasource": "InfluxDB",
+          "definition": "allRequests,setEvent",
+          "description": "Группа запросов",
+          "label": "Группа запросов",
+          "current": {
+            "text": "allRequests",
+            "value": "allRequests"
+          },
+          "options": [
+            {
+              "text": "allRequests",
+              "value": "allRequests"
+            },
+            {
+              "text": "setEvent",
+              "value": "setEvent"
+            }
+          ]
+        }
+      ]
+    },
+    "panels": [
+      {
+        "id": 1,
+        "title": "Response Time (Mean)",
+        "type": "timeseries",
+        "datasource": "InfluxDB",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "targets": [
+          {
+            "refId": "A",
+            "measurement": "gatling.$simulation.$request_group.ok.mean",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                }
+              ]
+            ],
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "auto"
+                ]
+              }
+            ]
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "custom": {
+              "lineWidth": 2,
+              "fillOpacity": 10
+            }
+          }
+        }
+      },
+      {
+        "id": 2,
+        "title": "Response Time (95 percentile)",
+        "type": "timeseries",
+        "datasource": "InfluxDB",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        },
+        "targets": [
+          {
+            "refId": "B",
+            "measurement": "gatling.$simulation.$request_group.ok.percentiles95",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                }
+              ]
+            ],
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "auto"
+                ]
+              }
+            ]
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "custom": {
+              "lineWidth": 2,
+              "fillOpacity": 10
+            }
+          }
+        }
+      },
+      {
+        "id": 3,
+        "title": "Active Users",
+        "type": "timeseries",
+        "datasource": "InfluxDB",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 0,
+          "y": 8
+        },
+        "targets": [
+          {
+            "refId": "C",
+            "measurement": "gatling.$simulation.users",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                }
+              ]
+            ],
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "auto"
+                ]
+              }
+            ]
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "lineWidth": 2,
+              "fillOpacity": 15
+            }
+          }
+        }
+      },
+      {
+        "id": 4,
+        "title": "Request Count",
+        "type": "timeseries",
+        "datasource": "InfluxDB",
+        "gridPos": {
+          "h": 8,
+          "w": 12,
+          "x": 12,
+          "y": 8
+        },
+        "targets": [
+          {
+            "refId": "D",
+            "measurement": "gatling.$simulation.$request_group.all.count",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "sum"
+                }
+              ]
+            ],
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "auto"
+                ]
+              }
+            ]
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "short",
+            "custom": {
+              "lineWidth": 2,
+              "fillOpacity": 10
+            }
+          }
+        }
+      },
+      {
+        "id": 5,
+        "title": "Success vs Failed Requests",
+        "type": "timeseries",
+        "datasource": "InfluxDB",
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 16
+        },
+        "targets": [
+          {
+            "refId": "E",
+            "measurement": "gatling.$simulation.$request_group.ok.count",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "sum"
+                }
+              ]
+            ],
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "auto"
+                ]
+              }
+            ],
+            "alias": "OK Requests"
+          },
+          {
+            "refId": "F",
+            "measurement": "gatling.$simulation.$request_group.ko.count",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "sum"
+                }
+              ]
+            ],
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "auto"
+                ]
+              }
+            ],
+            "alias": "Failed Requests"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "custom": {
+              "lineWidth": 2,
+              "fillOpacity": 10
+            }
+          }
+        }
+      },
+      {
+        "id": 6,
+        "title": "Min/Max Response Time",
+        "type": "timeseries",
+        "datasource": "InfluxDB",
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 24
+        },
+        "targets": [
+          {
+            "refId": "G",
+            "measurement": "gatling.$simulation.$request_group.ok.min",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "min"
+                }
+              ]
+            ],
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "auto"
+                ]
+              }
+            ],
+            "alias": "Min Response Time"
+          },
+          {
+            "refId": "H",
+            "measurement": "gatling.$simulation.$request_group.ok.max",
+            "select": [
+              [
+                {
+                  "type": "field",
+                  "params": [
+                    "value"
+                  ]
+                },
+                {
+                  "type": "max"
+                }
+              ]
+            ],
+            "groupBy": [
+              {
+                "type": "time",
+                "params": [
+                  "auto"
+                ]
+              }
+            ],
+            "alias": "Max Response Time"
+          }
+        ],
+        "fieldConfig": {
+          "defaults": {
+            "unit": "ms",
+            "custom": {
+              "lineWidth": 2,
+              "fillOpacity": 10
+            }
+          }
+        }
+      }
+    ]
+  }
+}

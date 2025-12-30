@@ -1,0 +1,7 @@
+{
+  "type": ["recServiceRecomendations/analogue", "recServiceRecomendations/related", "recServiceRecomendations/personalComposite", "recServiceRecomendations/popular"],
+  "device_id": "",
+  "shop_id": "#{idShop}",
+  "delivery_type": "delivery",
+  "product_ids": ["7343"]
+}

@@ -1,0 +1,16 @@
+
+{
+  "city_id": "#{cityId}",
+  "shop_id": "#{idShop}",
+  "delivery": "#{deliveryType}",
+  "date_reciept": "#{date}",
+  "interval_delivery": "#{interval}",
+  "items": [
+    {"article": "101382", "quantity": 13, "measure": "кг"},
+    {"article": "162098", "quantity": 4.3, "measure": "шт"},
+    {"article": "101046411", "quantity": 1, "measure": "шт"},
+    {"article": "101389", "quantity": 2.7, "measure": "кг"},
+    {"article": "101255580", "quantity": 2, "measure": "шт"},
+    {"article": "100348910", "quantity": 1, "measure": "шт"}
+  ]
+}

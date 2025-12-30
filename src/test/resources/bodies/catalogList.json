@@ -1,0 +1,8 @@
+{
+  "shop_id": "#{idShop}",
+  "delivery_type": "delivery",
+  "page": 1,
+  "section": "",
+  "search": "постный майонез",
+  "get_suggest": true
+}

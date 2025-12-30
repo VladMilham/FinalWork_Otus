@@ -1,0 +1,27 @@
+{
+  "simulation": "simulations.fMaxLgc",
+  "simulationId": "fmaxlgc-20251227010552640",
+  "start": 1766797554532,
+  "description": "",
+  "scenarios": ["LegacyTask - preprod legacy Load"],
+  "assertions": [
+{
+  "path": "Global",
+  "target": "99th percentile of response time",
+  "condition": "is less than",
+  "expectedValues": [3000.0],
+  "result": false,
+  "message": "Global: 99th percentile of response time is less than 3000.0",
+  "actualValue": [4165.0]
+},
+{
+  "path": "Global",
+  "target": "percentage of successful events",
+  "condition": "is greater than",
+  "expectedValues": [99.0],
+  "result": true,
+  "message": "Global: percentage of successful events is greater than 99.0",
+  "actualValue": [99.99501901077554]
+}
+  ]
+}

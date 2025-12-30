@@ -1,0 +1,6 @@
+{
+  "city_id": 44,
+  "delivery_type": "delivery",
+  "shop_id": "#{shop_NN}",
+  "address_id": "#{idAddress}"
+}
