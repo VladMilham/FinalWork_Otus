@@ -11,14 +11,14 @@ import scala.concurrent.duration._
 
 class Debug extends Simulation {
 
-  // ============ ОПРЕДЕЛЕНИЕ HTTP КОНФИГА ============
+  // ОПРЕДЕЛЕНИЕ HTTP КОНФИГА
   val httpProtocol: HttpProtocolBuilder = http
     .baseUrl(config.baseUrl)
     .acceptHeader("application/json")
     .contentTypeHeader("application/json")
     .disableAutoReferer
 
-  // ============ СЦЕНАРИЙ ============
+  // СЦЕНАРИЙ
   val scn: ScenarioBuilder = UseScenarios.scn
 
   setUp(

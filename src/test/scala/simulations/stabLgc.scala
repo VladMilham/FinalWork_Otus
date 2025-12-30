@@ -18,10 +18,10 @@ class stabLgc extends Simulation {
     .contentTypeHeader("application/json")
     .disableAutoReferer
 
-  // ============ СЦЕНАРИЙ ============
+  //СЦЕНАРИЙ
     val scn: ScenarioBuilder = LegacyTask.scn
 
-  // ============ SETUP ============
+  // SETUP
   setUp(
     scn.inject(
       // Разогрев: плавно выходим на рабочую нагрузку за 5 минут

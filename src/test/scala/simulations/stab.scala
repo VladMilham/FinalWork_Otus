@@ -24,9 +24,8 @@ class stab extends Simulation {
   // ============ SETUP ============
   setUp(
     scn.inject(
-      // Разогрев: плавно выходим на рабочую нагрузку за 5 минут
+      // Разогрев: плавно выходим на рабочую нагрузку за N минут
       rampUsersPerSec(0).to(2.7).during(200.seconds),
-//      rampUsers(27).during(2.minutes),
 
       // Основная часть: держим нагрузку ровной полкой долгое время
       constantUsersPerSec(2.7).during(60.minutes)
