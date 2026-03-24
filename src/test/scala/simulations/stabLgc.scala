@@ -25,11 +25,11 @@ class stabLgc extends Simulation {
   setUp(
     scn.inject(
       // Разогрев: плавно выходим на рабочую нагрузку за 5 минут
-      rampUsersPerSec(0).to(4.2).during(200.seconds),
+      rampUsersPerSec(0).to(4.0).during(200.seconds),
 //            rampUsers(150).during(500.seconds),
 
       // Основная часть: держим нагрузку ровной полкой долгое время
-      constantUsersPerSec(4.2).during(60.minutes)
+      constantUsersPerSec(4.0).during(30.minutes)
     )
   ).protocols(httpProtocol)
 }

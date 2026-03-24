@@ -18,7 +18,7 @@
 <!--    &lt;!&ndash; Логи Graphite writer &ndash;&gt;-->
 <!--    <logger name="io.gatling.core.stats.writer.GraphiteDataWriter" level="DEBUG"/>-->
 
-	<root level="WARN">
+        <root level="WARN">
 		<appender-ref ref="CONSOLE" />
 	</root>
 

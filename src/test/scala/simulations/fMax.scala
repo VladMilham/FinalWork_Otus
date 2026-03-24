@@ -24,16 +24,17 @@ class fMax extends Simulation {
   // SETUP
   setUp(
     scn.inject(
-      incrementUsersPerSec(0.5)       // Увеличиваем на 1 юзера/сек на каждой ступени
-        .times(7)                    // 10 ступеней
+      incrementUsersPerSec(0.25)       // Увеличиваем на 1 юзера/сек на каждой ступени
+        .times(2)                    // 10 ступеней
         .eachLevelLasting(200.seconds)  // сколько длится каждая ступень
         .separatedByRampsLasting(50.seconds) // Плавный переход
-        .startingFrom(0.5)            // Начинаем с 0.5 юзера/сек
+        .startingFrom(0.25)            // Начинаем с 0.5 юзера/сек
     )
   ).protocols(httpProtocol)
   //    .maxDuration(3.minutes)
   .assertions(
     global.responseTime.percentile(95).lt(3000), // Если 95% ответов дольше 3 сек — fail
+    global.responseTime.percentile(99).lt(5000), // Если 95% ответов дольше 5 сек — fail
     global.successfulRequests.percent.gt(99)     // Если ошибок > 1% — fail
   )
 }

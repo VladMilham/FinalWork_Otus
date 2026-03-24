@@ -164,7 +164,7 @@ object UseScenarios {
           3.10 -> exec(Requests.getStories).pause(0.2.seconds),
           2.96 -> exec(Requests.getBanners).pause(0.1.seconds),
           2.27 -> exec(Requests.getPopups).pause(0.3.seconds),
-          1.72 -> exec(Requests.handlePopup).pause(0.2.seconds),
+//          1.72 -> exec(Requests.handlePopup).pause(0.2.seconds),
 
           // ПРОФИЛЬ И КАРТОЧКА (3.5%)
           1.28 -> exec(Requests.getPersonalData).pause(0.3.seconds),

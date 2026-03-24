@@ -45,7 +45,7 @@ object lgcRequests {
     .headers(commonHeadersLgc)
 
   def getTokenTSD: HttpRequestBuilder = http("getTokenTSD")
-    .post("/api/token/get/")
+    .post("https://tsd.myspar.ru/api/token/get/")
     .body(ElFileBody("bodies/loginTSD.json"))
     .check(status.is(200))
     .check(jsonPath("$.error.code").optional.saveAs("errorCode"))
@@ -408,7 +408,7 @@ object lgcRequests {
     .headers(commonHeadersLgc)
 
   val getTsdInfo: HttpRequestBuilder = http("getTsdInfo")
-    .post("/api/tsd/getinfo/")
+    .post("https://tsd.myspar.ru/api/tsd/getinfo/")
     .headers(tsdHeaders)
     .body(StringBody(
       """{

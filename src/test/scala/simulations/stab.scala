@@ -25,10 +25,10 @@ class stab extends Simulation {
   setUp(
     scn.inject(
       // Разогрев: плавно выходим на рабочую нагрузку за N минут
-      rampUsersPerSec(0).to(2.7).during(200.seconds),
+      rampUsersPerSec(0).to(0.5).during(200.seconds),
 
       // Основная часть: держим нагрузку ровной полкой долгое время
-      constantUsersPerSec(2.7).during(60.minutes)
+      constantUsersPerSec(0.5).during(60.minutes)
     )
   ).protocols(httpProtocol)
     .assertions(

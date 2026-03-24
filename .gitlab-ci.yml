@@ -1,0 +1,23 @@
+stages:
+  - test-load
+
+load-test:
+  stage: test-load
+  image: hseeberger/scala-sbt:11u11_1.5.8_2.13.12  # SBT + Scala (вместо Docker)
+  variables:
+    JAVA_OPTS: "-Dgatling.conf.file=src/test/resources/gatling.conf"
+  script:
+    # 1. установка JAVA_OPTS
+    - export JAVA_OPTS="$JAVA_OPTS"
+    - echo "JAVA_OPTS set to: $JAVA_OPTS"
+
+    # 2. Запуск теста стабильности
+    - sbt "Gatling/testOnly simulations.stab"
+  artifacts:
+    paths:
+      - target/gatling/
+      - target/scala-*/gatling/
+    expire_in: 1 week
+    when: always
+#  tags:
+#    - docker

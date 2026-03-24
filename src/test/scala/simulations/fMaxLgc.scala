@@ -24,11 +24,11 @@ class fMaxLgc extends Simulation {
   // SETUP
   setUp(
     scn.inject(
-      incrementUsersPerSec(0.5)       // Увеличиваем на 1 юзера/сек на каждой ступени
-        .times(7)                    // 10 ступеней
+      incrementUsersPerSec(1.0)       // Увеличиваем на 1 юзера/сек на каждой ступени
+        .times(10)                    // 10 ступеней
         .eachLevelLasting(200.seconds)  // сколько длится каждая ступень
         .separatedByRampsLasting(50.seconds) // Плавный переход
-        .startingFrom(0.5)            // Начинаем с 0.5 юзера/сек
+        .startingFrom(1.0)            // Начинаем с 0.5 юзера/сек
     )
   ).protocols(httpProtocol)
   //    .maxDuration(3.minutes)
